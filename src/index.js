@@ -1,14 +1,22 @@
 import _ from 'lodash';
 import Block from './style.css';
-import './block.png';
+import printMe from './print.js';
+
 
 function component(){
     var element = document.createElement('div');
+    var btn = document.createElement('button');
+    
+    
     element.innerHTML = _.join(['Hello', 'Webpack'], ' ');
     element.classList.add('hello');
-    var myImg = new Image();
-    myImg.src = Block;
-    element.appendChild(myImg);
+    
+    
+    btn.innerHTML = 'click me';
+    btn.onclick = printMe;
+    
+    element.appendChild(btn);
+    
     return element;
 }
 
