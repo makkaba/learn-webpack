@@ -1,3 +1,3 @@
 export default function printMe(){
-    console.fog('print me');
+    console.log('print.js is updated...');
 }
