@@ -1,28 +1,20 @@
-import _ from 'lodash';
-import printMe from './print.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './reducers';
+import App from './components/App';
 
-if(process.env.NODE_ENV !== 'production'){
-    console.log('this is dev mode');
-}
+const store = createStore(rootReducer);
 
-function component(){
-    var element = document.createElement('div');
-    var btn = document.createElement('button');
+// store.subscribe(()=>{
+//   console.log(store.getState());
+// });
 
-    element.innerHTML = _.join(['Hello', 'Webpack'], ' ');
-    element.classList.add('hello');    
-    btn.innerHTML = 'click me';
-    btn.onclick = printMe;
-    element.appendChild(btn);
-    
-    return element;
-}
-
-document.body.appendChild(component());
-
-if(module.hot){
-    module.hot.accept('./print.js', function(){
-        console.log('module hot accept print.js');
-        printMe();
-    })
-}
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>, 
+    document.getElementById('root')
+);

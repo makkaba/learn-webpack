@@ -9,15 +9,29 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'Production'
+            title: 'Production',
+            template: './src/template.html',
+            filename: 'index.html'
         })
     ],
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
+    resolve: {
+        extensions: ['.js', '.jsx', '.json']
+    },
     module: {
         rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                query: {
+                    cacheDirectory: true,
+                    presets: ['es2015', 'react']
+                }
+            },
             {
                 test: /\.css$/,
                 use: [
