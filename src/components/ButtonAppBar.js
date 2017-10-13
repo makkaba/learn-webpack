@@ -9,7 +9,7 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui-icons/Menu';
+import HomeIcon from 'material-ui-icons/Home';
 
 const styles = theme => ({
   root: {
@@ -33,12 +33,18 @@ function ButtonAppBar(props) {
               <Grid item sm={2}></Grid>
               <Grid item xs={12} sm={8}>
                   <Toolbar>
-                    <Typography type="title" color="inherit" className={classes.flex}>
-                      홈
-                    </Typography>
-                    <Link to='/login' style={{ textDecoration: 'none' }}>
-                        <Button color="contrast">로그인</Button>
-                    </Link>
+                      <Link to='/' style={{ textDecoration: 'none' }}>
+                          <Button color="contrast">JustPick</Button>
+                      </Link>
+                    <div className={classes.flex}></div>
+                    {
+                        props.user ? props.user.displayName 
+                        :
+                        <Link to='/login' style={{ textDecoration: 'none' }}>
+                            <Button color="contrast">로그인</Button>
+                        </Link>
+                    }
+
                   </Toolbar>
               </Grid>
               <Grid item sm={2}></Grid>
