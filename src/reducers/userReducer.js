@@ -3,18 +3,18 @@ const LOGOUT = 'LOGOUT';
 
 
 const initialState = {
-    user: ''
+    user: null
 };
 
 function userReducer(state = initialState, action){
     switch(action.type){
         case LOGIN:
             return {
-                user: action.payload
+                user: action.user
             };
         case LOGOUT: 
             return {
-                user: ''
+                user: null
             };
         default:
             return state;
