@@ -15,7 +15,6 @@ class MainLayout extends Component{
         return(
             <div>
                 <ButtonAppBar user={user} />
-                <div>{user.displayName}</div>
                 {this.props.children}
             </div>
         );

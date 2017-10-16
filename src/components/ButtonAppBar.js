@@ -10,6 +10,7 @@ import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import HomeIcon from 'material-ui-icons/Home';
+import AccountButton from './AccountButton';
 
 const styles = theme => ({
   root: {
@@ -38,8 +39,7 @@ function ButtonAppBar(props) {
                       </Link>
                     <div className={classes.flex}></div>
                     {
-                        props.user ? props.user.displayName 
-                        :
+                        props.user ? <AccountButton user={props.user} /> :
                         <Link to='/login' style={{ textDecoration: 'none' }}>
                             <Button color="contrast">로그인</Button>
                         </Link>
