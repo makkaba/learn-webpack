@@ -5,6 +5,7 @@ import { login } from '../actions';
 import Firebase from '../config/firebaseConfig';
 import Login from '../pages/LoginPage';
 import Home from '../pages/HomePage';
+import Problem from '../pages/ProblemPage';
 import NoMatch from '../pages/NoMatchPage';
 
 class App extends Component{
@@ -41,6 +42,7 @@ class App extends Component{
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route path="/login" component={Login}/>
+                            <Route path="/problem" component={Problem}/>
                             <Route component={NoMatch}/>
                         </Switch>
                     </div>
