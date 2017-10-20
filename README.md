@@ -1,6 +1,2 @@
-```
-npm init -y
-npm install --save-dev webpack
-```
-
-
+# Rule
+1. 커밋 메세지는 영어로
