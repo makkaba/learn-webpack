@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import Button from 'material-ui/Button';
 import Menu, { MenuItem } from 'material-ui/Menu';
+import Firebase from '../config/firebaseConfig';
+import { connect } from 'react-redux';
+import { logout } from '../actions';
 
 class AccountButton extends Component {
     constructor(props){
@@ -16,6 +19,12 @@ class AccountButton extends Component {
     handleRequestClose = () => {
         this.setState({ open: false });
     };
+    handleRequestLogout = () =>{
+        Firebase.app.auth().signOut();
+        this.props.onLogout();
+        
+        //TODO:페이지를 메인으로 던진다 -> route 쪽을 다시 짜야 함 <Redirect/>로
+    }
     
     
     render() {
@@ -37,11 +46,20 @@ class AccountButton extends Component {
             >
               <MenuItem onClick={this.handleRequestClose}>Profile</MenuItem>
               <MenuItem onClick={this.handleRequestClose}>My account</MenuItem>
-              <MenuItem onClick={this.handleRequestClose}>Logout</MenuItem>
+              <MenuItem onClick={this.handleRequestLogout}>Logout</MenuItem>
             </Menu>
           </div>
         );
     }
 }
 
-export default AccountButton;
+const mapDispatchToProps = dispatch => {
+  return {
+    onLogout: () => {
+      dispatch(logout())
+    }
+  }
+}
+
+
+export default connect(null, mapDispatchToProps)(AccountButton);
