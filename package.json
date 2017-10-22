@@ -34,6 +34,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "firebase": "^4.5.0",
     "firebaseui": "^2.4.0",
     "katex": "^0.9.0-alpha1",

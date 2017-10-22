@@ -7,6 +7,7 @@ import Login from '../pages/LoginPage';
 import Home from '../pages/HomePage';
 import Problem from '../pages/ProblemPage';
 import NoMatch from '../pages/NoMatchPage';
+import Category from '../pages/CategoryPage';
 
 class App extends Component{
     //TODO: async await 써보기, user 상태를 중앙에서 관리하기. 그에따라 네브바 다르게하기.
@@ -42,7 +43,7 @@ class App extends Component{
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route path="/login" component={Login}/>
-                            <Route path="/problem" component={Problem}/>
+                            <Route path="/categories" component={Category}/>
                             <Route component={NoMatch}/>
                         </Switch>
                     </div>
