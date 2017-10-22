@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
-import Button from 'material-ui/Button';
-import Menu, { MenuItem } from 'material-ui/Menu';
 import Firebase from '../config/firebaseConfig';
 import { connect } from 'react-redux';
 import { logout } from '../actions';
+import Button from 'material-ui/Button';
+import Menu, { MenuItem } from 'material-ui/Menu';
+import UserAvatar from './UserAvatar';
+
+const styles = {
+    account: {
+        display: 'flex'
+    }
+};
 
 class AccountButton extends Component {
     constructor(props){
@@ -28,15 +35,17 @@ class AccountButton extends Component {
     
     
     render() {
+        const { user } = this.props;
         return (
-          <div>
+          <div style={styles.account}>
+              <UserAvatar user={user} />
             <Button
               aria-owns={this.state.open ? 'simple-menu' : null}
               aria-haspopup="true"
               onClick={this.handleClick}
               color="contrast"
             >
-              {this.props.user.displayName}
+              {user.displayName}
             </Button>
             <Menu
               id="simple-menu"
