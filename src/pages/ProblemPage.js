@@ -1,35 +1,40 @@
 import MainLayout from '../containers/MainLayout';
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import katex from 'katex';
+// import * as MathJax from 'mathjax';
 import 'katex/dist/katex.css';
+
+const tex = 'a + b';
 
 
 class ProblemPage extends Component{
     constructor(props){
         super(props);
         this.state = {
-            latex: {
-                __html: ''
+            content: {
+                __html: null
             }
         };
     }
     
     componentDidMount(){
-        const text = {__html:
-            katex.renderToString("c = \\pm\\sqrt{a^2 + b^2}")
+        const renderedText = {__html:
+            katex.renderToString("\thello\tc = \\pm\\sqrt{a^2 + b^2}\thello")
         };
         this.setState({
-            latex: text
+            content: renderedText
         });
     }
     render(){
-        return (
-            <MainLayout>
-                <div dangerouslySetInnerHTML={this.state.latex}>
+        
+       return (
+           <MainLayout>
+                <div dangerouslySetInnerHTML={this.state.content}>
                 </div>
             </MainLayout>
-          
-        );
+         
+       );
     }
   
 }

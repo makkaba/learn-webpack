@@ -3,14 +3,11 @@ import { connect } from 'react-redux';
 import ButtonAppBar from '../components/ButtonAppBar';
 
 class MainLayout extends Component{
-    componentWillUpdate(){
-        console.log("레이아웃 업데이트 직전",this.props.user);
-    }
     componentDidMount(){
         console.log("레이아웃 마운트 직후",this.props.user);
     }
     render(){
-        console.log("레이아웃 렌더링",this.props.user);
+        
         let user = this.props.user.user;
         return(
             <div>
