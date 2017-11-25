@@ -16,7 +16,7 @@ class homePage extends Component{
   }
   
   componentDidMount(){
-      fetchCategories();
+      this.fetchCategories();
   }
   
   fetchCategories(){
