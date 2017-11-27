@@ -32,8 +32,8 @@ class homePage extends Component{
             <div>
                 <h1>home page!</h1>
                 
-                <div>
-                    <Grid container spacing={24} className="category-container">
+                <div className="category_outer-container">
+                    <Grid container spacing={24} className="category_container">
                     {this.state.categories.map((category, index) => {
                         return (
                                 <Grid item xs={6}>

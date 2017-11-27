@@ -23,6 +23,11 @@ const styles = theme => ({
     marginLeft: -12,
     marginRight: 20,
   },
+  outerContainer: {
+      flexGrow: 1,
+      paddingLeft: '12px',
+      paddingRight: '12px',
+  },
 });
 
 function ButtonAppBar(props) {
@@ -30,6 +35,7 @@ function ButtonAppBar(props) {
   return (
     <div className={classes.root}>
       <AppBar position="static">
+        <div className={classes.outerContainer}>
           <Grid container spacing={24}>
               <Grid item sm={2}></Grid>
               <Grid item xs={12} sm={8}>
@@ -49,7 +55,7 @@ function ButtonAppBar(props) {
               </Grid>
               <Grid item sm={2}></Grid>
           </Grid>
-        
+        </div>
       </AppBar>
     </div>
   );
